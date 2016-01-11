@@ -20,12 +20,37 @@ public class FindBugsOnceTest {
 	}
 	
 	@Test
-	public void testsNameWithDoubleSpace() {
+	public void testsNameWithMiddleNameSingleSpace() {
+		String input = "James Graeme Pickles";
+		String output = fbo.getInitials(input);
+		String expected = "JGP";
+		assertEquals(output, expected);
+	}
+	
+	@Test
+	public void testsNameWithManySpaces() {
 		String input = "James     Pickles";
 		String output = fbo.getInitials(input);
 		String expected = "JP";
 		assertEquals(output, expected);
 	}
+	
+	@Test
+	public void testsNameWithMiddleNameManySpaces() {
+		String input = "James Graeme    Pickles";
+		String output = fbo.getInitials(input);
+		String expected = "JGP";
+		assertEquals(output, expected);
+	}
+	
+	@Test
+	public void testsNameWithSpacesAtFront() {
+		String input = "  James Graeme Pickles";
+		String output = fbo.getInitials(input);
+		String expected = "JGP";
+		assertEquals(output, expected);
+	}
+	
 	/*
 	public static void main(String[] args) {
 		FindBugsOnce fbo = new FindBugsOnce();
